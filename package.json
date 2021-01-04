@@ -1,0 +1,9 @@
+{
+  "name": "my-personal-portfolio",
+  "version": "1.0.0",
+  "description": "\"Repositório para armazenar os arquivos do meu portfólio pessoal'",
+  "main": "index.js",
+  "repository": "https://github.com/daniel-silva-dxp/my-new-portfolio.git",
+  "author": "Daniel Silva <dani3l.dxp@gmail.com>",
+  "license": "MIT"
+}
