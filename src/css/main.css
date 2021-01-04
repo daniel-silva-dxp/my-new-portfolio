@@ -1,0 +1,507 @@
+/*------------------------------------------------------------------
+[Comments table]
+
+1. VARIABLES
+2. GENERAL STYLE
+    2.1 TYPOGRAPHY
+    2.2 SPECIAL CLASSES
+    2.3 FLEXBOX CLASSES
+    2.4 SOCIAL ICONS
+3. HEADE
+    3.1 BURGER BUTTON
+    3.2 FULLSCREEN MENU
+4. HOME 
+5. ABOUT ME
+6. CASES
+7. CONTACT
+8. PRELOADER
+9. RESPONSIVE RULES
+10. ANIMATIONS
+11. SCROLL BAR
+12. CURSOR
+------------------------------------------------------------------*/
+
+/* ====================== [ 1. VARIABLES] ====================== */
+:root {
+  --green-color: #6cff6c;
+  --light-grey: #7d7d88;
+  --dark-grey: #0c0f17;
+  --dark-grey-2: #12141b;
+  --dark-grey-3: #26292f;
+  --white-color: #fff;
+}
+
+/* ====================== [ 2. GENERAL STYLE] ====================== */
+::selection {
+  background: var(--light-grey);
+  color: var(--white-color);
+}
+::-moz-selection {
+  background: var(--light-grey);
+  color: var(--white-color);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  vertical-align: baseline;
+}
+html,
+body {
+  scroll-behavior: smooth;
+  color: var(--white-color);
+  background-color: #0c0f17;
+}
+body {
+  font-family: "Poppins", sans-serif;
+  -webkit-touch-callout: none;
+  user-select: none;
+  overflow-x: hidden;
+}
+article,
+aside,
+details,
+figcaption,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+span,
+a,
+a:hover {
+  display: inline-block;
+  color: inherit;
+}
+img {
+  display: block;
+  max-width: 100%;
+}
+input,
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+button {
+  outline: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+ol,
+ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+
+/* ====================== [ 2.1 TYPOGRAPHY ] ====================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+}
+h1 {
+  font-size: calc(48px + 1vw);
+}
+h6 {
+  font-size: 16px;
+}
+blockquote {
+  margin: 0 auto 15px;
+  font-size: 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  line-height: 1.4;
+  font-weight: 600;
+}
+p {
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 2;
+}
+a:hover,
+span:hover {
+  text-decoration: none;
+}
+
+/* ====================== [ 2.2 SPECIAL CLASSES ] ====================== */
+.container {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+.tags {
+  color: var(--light-grey);
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  font-size: 14px;
+  font-family: "La Belle Aurore", cursive;
+  z-index: 800;
+}
+.top-tags {
+  bottom: auto;
+  top: 90px;
+}
+.bottom-tags {
+  bottom: 20px;
+}
+.custom-font {
+  font-family: "Barlow Condensed", sans-serif;
+}
+.simple-btn {
+  position: relative;
+  padding: 7px;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 13px;
+  font-weight: 300;
+}
+.simple-btn:after {
+  content: "";
+  width: 45%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* ====================== [ 2.3 FLEXBOX CLASSES ] ====================== */
+.flex-container {
+  display: flex;
+}
+.flex-row {
+  flex-direction: row;
+}
+.flex-column {
+  flex-direction: column;
+}
+.flex-wrap {
+  flex-wrap: wrap;
+}
+.align-center {
+  align-items: center;
+  justify-content: center;
+}
+.align-center--between {
+  align-items: center;
+  justify-content: space-between;
+}
+.align-center--evenly {
+  align-items: center;
+  justify-content: space-evenly;
+}
+.align-center--around {
+  align-items: center;
+  justify-content: space-around;
+}
+
+/* ====================== [ 2.4 SOCIAL ICONS ] ====================== */
+
+/* ====================== [ 3. HEADER ] ====================== */
+
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ds-logo {
+  position: fixed;
+  width: 70px;
+  height: 70px;
+  top: 0;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 120;
+}
+
+/* ====================== [ 3.1 BURGER BUTTON ] ====================== */
+.ds-nav--content {
+  position: fixed;
+  top: 0px;
+  right: 15px;
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 120;
+}
+.btn-nav--container {
+  width: 60px;
+  height: 30px;
+  z-index: 999;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.btn-nav {
+  width: 100%;
+  height: 2px;
+  background: var(--white-color);
+  top: 0;
+  transition: all ease 0.2s;
+  position: relative;
+}
+.btn-nav:before,
+.btn-nav:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  background: var(--white-color);
+  height: 100%;
+  transition: all ease 0.3s;
+}
+.btn-nav:before {
+  top: -8px;
+  width: 50%;
+}
+.btn-nav:after {
+  top: 8px;
+  width: 75%;
+}
+.btn-nav--container:hover .btn-nav:before,
+.btn-nav--container:hover .btn-nav:after {
+  width: 100%;
+}
+.btn-nav--container.close-menu .btn-nav {
+  transform: rotate(-45deg);
+}
+.btn-nav--container.close-menu .btn-nav:after {
+  opacity: 0;
+  transition: all ease 0.2s;
+}
+.btn-nav--container.close-menu .btn-nav:before {
+  top: 0;
+  transform: rotate(90deg);
+  width: 100%;
+  transition: all ease 0.2s;
+  background: var(--white-color);
+}
+
+/* ====================== [ 3.2 FULLSCREEN MENU ] ====================== */
+.float-nav {
+  z-index: 9;
+  position: fixed;
+  top: 0;
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+.float-nav .bg1,
+.float-nav .bg2 {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  background: rgba(38, 41, 47, 0.6);
+  top: 0;
+  left: 100%;
+  transition: all 0.7s ease 0.3s;
+}
+.float-nav .bg2 {
+  z-index: 99;
+  background: var(--dark-grey);
+  transition-delay: 0s;
+}
+.float-nav .container {
+  z-index: 200;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+  max-width: none;
+}
+.float-nav ul {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: 100vh;
+  opacity: 0;
+  transition: all 0.3s ease 0s;
+  padding: 0;
+  margin: 40px 10px;
+}
+.float-nav ul::after,
+.float-nav ul::before {
+  color: var(--light-grey);
+  font-size: 16px;
+  font-family: "La Belle Aurore", cursive;
+  position: absolute;
+}
+.float-nav ul::before {
+  content: "<nav>";
+}
+.float-nav ul::after {
+  content: "</nav>";
+  bottom: 0;
+  right: 0;
+}
+.float-nav ul li {
+  position: relative;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 0.2s ease 0.3s;
+}
+
+.float-nav ul li a {
+  color: var(--white-color);
+  text-transform: uppercase;
+  position: relative;
+  font-weight: 400;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.2s ease 0.2s;
+}
+.float-nav ul li a:hover {
+  opacity: 1;
+}
+.float-nav ul li a span {
+  font-size: 14px;
+  font-weight: 400;
+  margin-right: 5px;
+}
+.float-nav ul li a span:last-child {
+  font-size: 55px;
+}
+.float-nav.active .bg1,
+.float-nav.active .bg2 {
+  left: 0;
+}
+.float-nav.active .bg1 {
+  transition-delay: 0s;
+}
+.float-nav.active .bg2 {
+  transition-delay: 0.3s;
+}
+.float-nav.active ul {
+  opacity: 1;
+  transition-delay: 1s;
+}
+
+/* ====================== [ 9. RESPONSIVE RULES ] ====================== */
+@media screen and (min-width: 576px) {
+}
+@media screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 992px) {
+  header .ds-logo {
+    left: 40px;
+  }
+
+  .ds-nav--content {
+    right: 40px;
+  }
+}
+@media screen and (min-width: 1200px) {
+}
+
+@media screen and (min-width: 1364px) {
+}
+
+@media screen and (min-width: 1600px) {
+}
+
+/* ====================== [ 12. CURSOR ] ====================== */
+body {
+  cursor: none;
+}
+.mouse-cursor {
+  position: fixed;
+  left: 0;
+  top: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  visibility: hidden;
+}
+.cursor-inner {
+  margin-left: 2px;
+  margin-top: 2px;
+  width: 6px;
+  height: 6px;
+  z-index: 10000001;
+  background-color: #75dab4;
+  -webkit-transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  -o-transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out, height 0.3s ease-in-out,
+    margin 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+.cursor-inner.cursor-hover {
+  margin-left: -40px;
+  margin-top: -40px;
+  width: 80px;
+  height: 80px;
+  background-color: #75dab4;
+  opacity: 0.3;
+}
+.cursor-outer {
+  margin-left: -15px;
+  margin-top: -15px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #75dab4;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 10000000;
+  opacity: 0.5;
+  -webkit-transition: all 0.08s ease-out;
+  -o-transition: all 0.08s ease-out;
+  transition: all 0.08s ease-out;
+}
+.cursor-outer.cursor-hover {
+  opacity: 0;
+}
